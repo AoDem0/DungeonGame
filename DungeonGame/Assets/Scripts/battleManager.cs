@@ -14,7 +14,8 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI hp1;
     public TextMeshProUGUI hp2;
     public TextMeshProUGUI hp3;
-    public playerStats enemy;
+    public TextMeshProUGUI hp4;
+    public List<playerStats> en;
     public List<playerStats> heros;
 
     void Start()
@@ -24,9 +25,10 @@ public class BattleManager : MonoBehaviour
     void Update()
     {
         statusT.text = $"State: {status}";
-        hp1.text = $"{enemy.currentHP}";
+        hp1.text = en[0].currentHP.ToString();
         hp2.text = heros[0].currentHP.ToString();
         hp3.text = heros[1].currentHP.ToString();
+        hp4.text = en[1].currentHP.ToString();
     }
     private void OnEnable()
     {

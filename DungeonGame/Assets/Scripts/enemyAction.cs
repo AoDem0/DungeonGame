@@ -38,6 +38,7 @@ public class enemyAction : MonoBehaviour
         {
             isEnemyBussy = true;
             yield return new WaitForSeconds(1f);
+            
             Debug.Log("enemy " + enemyIndex + " attacks");
             enemyIndex++;
             isEnemyBussy = false;

@@ -15,12 +15,12 @@ public class playerAction : MonoBehaviour
     {
         eventsList.OnPlayerInput -= PlayerResponse;
     }
-    private void PlayerResponse()
+    private void PlayerResponse(int index)
     {
         if (battleMan.status == BattleState.PlayerTurn && heroIndex < heros.Count)
         {
            // Debug.Log("player turn yay");
-            PlayerAction(heroIndex);
+            PlayerAction(heroIndex, index);
             heroIndex++;
 
             if (heroIndex >= heros.Count)
@@ -33,9 +33,9 @@ public class playerAction : MonoBehaviour
 
     }
     
-    private void PlayerAction(int i)
+    private void PlayerAction(int i, int EI)
     {
-        Debug.Log("player " + i + " attacks");
+        Debug.Log("player " + i + " attacks enemie with " + EI + "index");
     }
 
 }
