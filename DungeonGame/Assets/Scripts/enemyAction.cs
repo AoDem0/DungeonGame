@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyAction : MonoBehaviour
 {
-    public List<playerStats> enemies;
+   /* public List<playerStats> enemies;
     public BattleManager battleMan;
     public int enemyIndex;
     public bool isEnemyBussy;
@@ -55,5 +55,5 @@ public class enemyAction : MonoBehaviour
             
         }
         
-    }
+    }*/
 }

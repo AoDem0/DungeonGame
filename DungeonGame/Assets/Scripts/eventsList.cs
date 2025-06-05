@@ -4,38 +4,37 @@ using UnityEngine;
 public class eventsList : MonoBehaviour
 {
     public static Action<BattleState> OnBattleStateChange;
-    //public static Action<GameObject> OnUIChangeForHero;
-    //public static Action<string> OnPlayerAction;
-    public static Action<int> OnPlayerInput;
+    public static Action<int, int> OnPlayerInput;
     public static Action OnEnemyInput;
 
     public static Action<bool, int> OnEnemyChosen;
+
+    /*public static Action<int, int> OnEnemieHit;
+    public static Action<int, int> OnPlayerHit;*/
 
     public void BattleStateChange(BattleState status)
     {
         OnBattleStateChange.Invoke(status);
     }
-    public void PlayerInput(int index)
+    public void PlayerInput(int enemyIndex, int atkIndex)
     {
-        OnPlayerInput.Invoke(index);
+        OnPlayerInput.Invoke(enemyIndex, atkIndex);
     }
     public void EnemyInput()
     {
         OnEnemyInput.Invoke();
     }
-    public void EnemyChosen(bool canAttack,int enemyIndex)
+    public void EnemyChosen(bool canAttack, int enemyIndex)
     {
         OnEnemyChosen.Invoke(canAttack, enemyIndex);
     }
-
-    
-    /*public void UIChangeForHero(GameObject hero)
+ /*   public void PlayerHit(int attackID, int whichPlayer)
     {
-        OnUIChangeForHero.Invoke(hero);
+        OnPlayerHit.Invoke(attackID, whichPlayer);
     }
-    public void PlayerAttack(string actionName)
+    public void EnemyHit(int attackID, int whichEnemie) //maybe niepotrzebne
     {
-        OnPlayerAction.Invoke(actionName);
-    }*/
-
+        OnEnemieHit.Invoke(attackID, whichEnemie);
+    }
+*/
 }

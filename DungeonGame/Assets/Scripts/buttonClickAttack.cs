@@ -6,6 +6,7 @@ public class buttonClickAttack : MonoBehaviour
     public eventsList events;
     public bool canAttack;
     public int whichEnemie;
+    public int buttonIndex;
 
     private void OnEnable()
     {
@@ -26,15 +27,17 @@ public class buttonClickAttack : MonoBehaviour
     private void turnOnAction(bool can, int i)
     {
         canAttack = can;
-        whichEnemie = i;
+        whichEnemie = i + 1; //musi byc >0 bo zero bedzie nam clear robic
         
     }
     public void ClickAttack()
     {
 
-        if (canAttack)
+        if (canAttack && whichEnemie > 0)
         {
-            events.PlayerInput(whichEnemie);
+
+            events.PlayerInput(whichEnemie, buttonIndex);
+            whichEnemie = 0;
         }
         
     }

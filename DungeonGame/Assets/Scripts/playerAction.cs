@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class playerAction : MonoBehaviour
 {
-    public List<playerStats> heros;
+   /* public List<playerStats> heros;
     public BattleManager battleMan;
     public int heroIndex;
     private void OnEnable()
@@ -15,12 +15,12 @@ public class playerAction : MonoBehaviour
     {
         eventsList.OnPlayerInput -= PlayerResponse;
     }
-    private void PlayerResponse(int index)
+    private void PlayerResponse(int index, int atkI)
     {
-        if (battleMan.status == BattleState.PlayerTurn && heroIndex < heros.Count)
+        if (battleMan.status == BattleState.PlayerTurn && heroIndex < heros.Count && index > 0)
         {
            // Debug.Log("player turn yay");
-            PlayerAction(heroIndex, index);
+            PlayerAction(heroIndex, index, atkI);
             heroIndex++;
 
             if (heroIndex >= heros.Count)
@@ -33,9 +33,9 @@ public class playerAction : MonoBehaviour
 
     }
     
-    private void PlayerAction(int i, int EI)
+    private void PlayerAction(int i, int EI, int atk)
     {
-        Debug.Log("player " + i + " attacks enemie with " + EI + "index");
-    }
+        Debug.Log("player: " + i + " attacks enemie: " + (EI - 1) + " with attack no: " + atk);
+    }*/
 
 }
