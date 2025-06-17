@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class buttonClickChooseEnemie : MonoBehaviour
 {
-    public int index;
+    private int index;
     private bool atack = true;
     public void ClickChoose()
     {

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class followPlayer : MonoBehaviour
 {
-    public Transform player;
+    [SerializeField]private Transform player;
     private Vector3 offset;
-    public float followSpeed = 2f;
+    [SerializeField] private float followSpeed = 2f;
 
 
     void FixedUpdate()

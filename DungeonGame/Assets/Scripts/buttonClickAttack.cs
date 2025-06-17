@@ -3,10 +3,10 @@ using UnityEngine;
 public class buttonClickAttack : MonoBehaviour
 {
     //public battleManager BM;
-    public eventsList events;
-    public bool canAttack;
-    public int whichEnemie;
-    public int buttonIndex;
+    [SerializeField]private eventsList events;
+    private bool canAttack;
+    private int whichEnemie;
+    private int buttonIndex;
 
     private void OnEnable()
     {

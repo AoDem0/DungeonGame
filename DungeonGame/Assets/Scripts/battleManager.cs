@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEngine.PlayerLoop;
 
 public enum BattleState { Start, PlayerTurn, EnemyTurn, Won, Lost }
 
@@ -11,31 +9,26 @@ public class BattleManager : MonoBehaviour
 {
     public BattleState status;
     [Header("text components")]
-    public TextMeshProUGUI statusT;
-    public TextMeshProUGUI hp1;
-    public TextMeshProUGUI hp2;
-    public TextMeshProUGUI hp3;
-    public TextMeshProUGUI hp4;
+    [SerializeField]private TextMeshProUGUI statusT;
     [Header("enemies components")]
     public List<playerStats> enemies;
-    public int enemyIndex;
-    public bool isEnemyBussy;
+    [SerializeField] private List<GameObject> enemiesPrefabs;
+    private int enemyIndex;
+    private bool isEnemyBussy;
     [Header("heros components")]
     public List<playerStats> heros;
-    public int heroIndex;
+    private playerMovement pM;
+    private int heroIndex;
 
 
     void Start()
     {
-        status = BattleState.PlayerTurn;
+        //status = BattleState.PlayerTurn;
+        pM = FindAnyObjectByType<playerMovement>();
     }
     void Update()
     {
         statusT.text = $"State: {status}";
-        /*hp1.text = enemies[0].currentHP.ToString() + "/" + enemies[0].maxHP.ToString();
-        hp2.text = heros[0].currentHP.ToString() + "/" + heros[0].maxHP.ToString();
-        hp3.text = heros[1].currentHP.ToString() + "/" + heros[1].maxHP.ToString();
-        hp4.text = enemies[1].currentHP.ToString() + "/" + enemies[1].maxHP.ToString();*/
     }
     private void OnEnable()
     {
@@ -53,9 +46,24 @@ public class BattleManager : MonoBehaviour
 
     private void ChangeState(BattleState battleState)
     {
-        //zrobic switch?
         status = battleState;
-        enemyResponce();
+        switch (battleState)
+        {
+            case BattleState.Start:
+                battleStart();
+                break;
+            case BattleState.EnemyTurn:
+                enemyResponce();
+                break;
+            case BattleState.Won:
+                battleWon();
+                break;
+            case BattleState.Lost:
+                battleLost();
+                break;
+            default:
+                break;
+        }
     }
 
     private void PlayerResponse(int index, int atkI)
@@ -121,7 +129,7 @@ public class BattleManager : MonoBehaviour
             {
                 eventsList.OnEnemyInput();
             }
-            else if(status == BattleState.EnemyTurn)
+            else if (status == BattleState.EnemyTurn)
             {
                 eventsList.OnBattleStateChange(BattleState.PlayerTurn);
                 enemyIndex = 0;
@@ -158,6 +166,27 @@ public class BattleManager : MonoBehaviour
             eventsList.OnBattleStateChange(BattleState.Lost);
         }
     }
-    
+
+    private void battleStart()
+    {   
+        pM.speed = 0;
+        Instantiate(enemiesPrefabs[0]);
+        GameObject[] foundObjects = GameObject.FindGameObjectsWithTag("Enemie");
+        foreach (GameObject found in foundObjects)
+        {
+            playerStats foundScript = found.GetComponent<playerStats>();;
+            enemies.Add(foundScript);
+        }
+        
+        eventsList.OnBattleStateChange(BattleState.PlayerTurn);
+    }
+    private void battleLost()
+    {
+        pM.speed = 5;
+    }
+    private void battleWon()
+    {
+        pM.speed = 5;
+    }
 
 }
