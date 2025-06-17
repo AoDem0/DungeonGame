@@ -32,10 +32,10 @@ public class BattleManager : MonoBehaviour
     void Update()
     {
         statusT.text = $"State: {status}";
-        hp1.text = enemies[0].currentHP.ToString() + "/" + enemies[0].maxHP.ToString();
+        /*hp1.text = enemies[0].currentHP.ToString() + "/" + enemies[0].maxHP.ToString();
         hp2.text = heros[0].currentHP.ToString() + "/" + heros[0].maxHP.ToString();
         hp3.text = heros[1].currentHP.ToString() + "/" + heros[1].maxHP.ToString();
-        hp4.text = enemies[1].currentHP.ToString() + "/" + enemies[1].maxHP.ToString();
+        hp4.text = enemies[1].currentHP.ToString() + "/" + enemies[1].maxHP.ToString();*/
     }
     private void OnEnable()
     {
@@ -53,6 +53,7 @@ public class BattleManager : MonoBehaviour
 
     private void ChangeState(BattleState battleState)
     {
+        //zrobic switch?
         status = battleState;
         enemyResponce();
     }
@@ -65,7 +66,7 @@ public class BattleManager : MonoBehaviour
             PlayerAction(heroIndex, index, atkI);
             heroIndex++;
 
-            if (heroIndex >= heros.Count)
+            if (heroIndex >= heros.Count && status == BattleState.PlayerTurn)
             {
                 eventsList.OnBattleStateChange(BattleState.EnemyTurn);
                 heroIndex = 0;
@@ -77,10 +78,15 @@ public class BattleManager : MonoBehaviour
 
     private void PlayerAction(int HI, int EI, int atk)
     {
-        Debug.Log("player: " + HI + " attacks enemie: " + (EI - 1) + " with attack no: " + atk);
-        enemies[EI - 1].currentHP -= heros[HI].attacksDMG[atk];
+        Debug.Log("player: " + HI + " attacks enemie: " + EI + " with attack no: " + atk);
+        playerStats target = enemies.Find(e => e.GetComponent<playerStats>().objectID == EI);
+        target.currentHP -= heros[HI].attacksDMG[atk];
+        if (target.currentHP <= 0)
+        {
+            Die(target, "enemy");
+        }
     }
-    
+
     private void enemyResponce()
     {
         if (status == BattleState.EnemyTurn && enemyIndex < enemies.Count)
@@ -88,7 +94,8 @@ public class BattleManager : MonoBehaviour
             allEnemyAction();
         }
     }
-    private void allEnemyAction() {
+    private void allEnemyAction()
+    {
         StartCoroutine(singleEnemyAction());
     }
 
@@ -99,10 +106,14 @@ public class BattleManager : MonoBehaviour
             isEnemyBussy = true;
             yield return new WaitForSeconds(1f);
 
-
             int ranHero = Random.Range(0, heros.Count);
             int ranAtk = Random.Range(0, 2);
+
             heros[ranHero].currentHP -= enemies[enemyIndex].attacksDMG[ranAtk];
+            if (heros[ranHero].currentHP <= 0)
+            {
+                Die(heros[ranHero], "hero");
+            }
             Debug.Log("enemy: " + enemyIndex + " attacks player: " + ranHero + "with atk no: " + ranAtk);
             enemyIndex++;
             isEnemyBussy = false;
@@ -110,15 +121,42 @@ public class BattleManager : MonoBehaviour
             {
                 eventsList.OnEnemyInput();
             }
-            else
+            else if(status == BattleState.EnemyTurn)
             {
                 eventsList.OnBattleStateChange(BattleState.PlayerTurn);
                 enemyIndex = 0;
-               // Debug.Log("Players turn");
+                // Debug.Log("Players turn");
             }
-            
+
         }
-        
+
+    }
+    private void Die(playerStats obj, string objType)
+    {
+        obj.gameObject.SetActive(false);
+        if (objType == "enemy")
+        {
+            enemies.Remove(obj);
+            checkTeamCount();
+        }
+        else if (objType == "hero")
+        {
+            heros.Remove(obj);
+            checkTeamCount();
+        }
+        Debug.Log("Enemie died");
+    }
+
+    private void checkTeamCount()
+    {
+        if (enemies.Count <= 0)
+        {
+            eventsList.OnBattleStateChange(BattleState.Won);
+        }
+        else if (heros.Count <= 0)
+        {
+            eventsList.OnBattleStateChange(BattleState.Lost);
+        }
     }
     
 

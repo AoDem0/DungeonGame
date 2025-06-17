@@ -6,6 +6,7 @@ public class buttonClickChooseEnemie : MonoBehaviour
     private bool atack = true;
     public void ClickChoose()
     {
+        index = GetComponentInParent<playerStats>().objectID;
         eventsList.OnEnemyChosen(atack ,index);
     }
 }

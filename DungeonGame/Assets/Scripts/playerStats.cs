@@ -13,6 +13,7 @@ public class playerStats : MonoBehaviour
     public int maxHP;
     public int currentHP;
     public List<int> attacksDMG;
+    public int objectID;
     //public Attack firstAttak;
     //public Attack secondAttak;
 }

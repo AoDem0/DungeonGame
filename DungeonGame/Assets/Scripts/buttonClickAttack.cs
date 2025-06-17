@@ -27,7 +27,7 @@ public class buttonClickAttack : MonoBehaviour
     private void turnOnAction(bool can, int i)
     {
         canAttack = can;
-        whichEnemie = i + 1; //musi byc >0 bo zero bedzie nam clear robic
+        whichEnemie = i; 
         
     }
     public void ClickAttack()
