@@ -445,16 +445,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163cc278d658c034cad6aa98276afbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  critChance: 0
-  critDmg: 0
-  minBaseDmg: 0
-  maxBaseDmg: 0
-  defens: 0
-  dodge: 0
+  heroName: 
   maxHP: 0
   currentHP: 0
-  firstAttak: {fileID: 0}
-  secondAttak: {fileID: 0}
+  maxStamina: 0
+  currentStamina: 0
+  attacksDMG: []
+  objectID: 0
 --- !u!1 &212446874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,13 +2088,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6215e1698f4a98a448024bd17063e5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  events: {fileID: 0}
-  playerTeam:
-  - {fileID: 209585382}
-  buttons:
-  - {fileID: 691834433}
-  - {fileID: 1657439455}
+  status: 0
+  statusT: {fileID: 0}
+  enemyMan: {fileID: 0}
+  heroMan: {fileID: 0}
 --- !u!4 &1340349893
 Transform:
   m_ObjectHideFlags: 0
@@ -2214,16 +2208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163cc278d658c034cad6aa98276afbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  critChance: 0
-  critDmg: 0
-  minBaseDmg: 0
-  maxBaseDmg: 0
-  defens: 0
-  dodge: 0
+  heroName: 
   maxHP: 0
   currentHP: 0
-  firstAttak: {fileID: 0}
-  secondAttak: {fileID: 0}
+  maxStamina: 0
+  currentStamina: 0
+  attacksDMG: []
+  objectID: 0
 --- !u!1 &1597269312
 GameObject:
   m_ObjectHideFlags: 0

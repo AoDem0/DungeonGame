@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleUIManager : MonoBehaviour
 {
 
     [SerializeField] private List<TextMeshProUGUI> allText;
+    [SerializeField] private Button button1;
+    [SerializeField] private Button button2;
 
     public void UpdateUI(playerStats hero)
     {
@@ -28,6 +31,9 @@ public class BattleUIManager : MonoBehaviour
         {
             allText[i].enabled = false;
         }
+        button1.gameObject.SetActive(false);
+        button2.gameObject.SetActive(false);
+
     }
     public void TurnOnUI()
     {
@@ -35,6 +41,8 @@ public class BattleUIManager : MonoBehaviour
         {
             allText[i].enabled = true;
         }
+        button1.gameObject.SetActive(true);
+        button2.gameObject.SetActive(true);
     }
 
 

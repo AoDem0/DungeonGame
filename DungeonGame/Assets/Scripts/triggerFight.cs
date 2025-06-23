@@ -7,6 +7,7 @@ public class triggerFight : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             eventsList.OnBattleStateChange(BattleState.Start);
+            Destroy(gameObject);
         }
     }
 }

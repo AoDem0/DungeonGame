@@ -82,6 +82,7 @@ public class BattleManager : MonoBehaviour
         Destroy(enemieGrupa);
         battleUI.TurnOffUI();
         heroMan.resetStamina();
+        eventsList.OnObjectDrop();
     }
     
     

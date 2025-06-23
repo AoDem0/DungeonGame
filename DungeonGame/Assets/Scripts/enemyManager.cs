@@ -10,6 +10,7 @@ public class enemyManager : MonoBehaviour
     private bool isEnemyBussy;
     private BattleManager battleMan;
     private heroManager heroMan;
+    [SerializeField] private Transform player;
     void Awake()
     {
         battleMan = FindAnyObjectByType<BattleManager>();
@@ -80,7 +81,11 @@ public class enemyManager : MonoBehaviour
 
     public void spawnEnemies()
     {
-        Instantiate(enemiesPrefabs[0]);
+        Vector3 playerPos = player.transform.position;
+        int ranPref = Random.Range(0, enemiesPrefabs.Count);
+        Vector3 spawnPos = new Vector3(playerPos.x + 2.5f, playerPos.y, playerPos.z);
+        Instantiate(enemiesPrefabs[ranPref], spawnPos, Quaternion.identity);
+
         GameObject[] foundObjects = GameObject.FindGameObjectsWithTag("Enemie");
         foreach (GameObject found in foundObjects)
         {
