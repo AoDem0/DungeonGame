@@ -561,10 +561,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163cc278d658c034cad6aa98276afbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicDmg: 2
+  heroName: 
   maxHP: 10
   currentHP: 10
-  attacksDMG: 0100000001000000
+  maxStamina: 0
+  currentStamina: 0
+  attacksDMG:
+  - attackName: 
+    dmgAmount: 5
+    critChance: 0
+    staminaCost: 0
+  - attackName: 
+    dmgAmount: 10
+    critChance: 0.5
+    staminaCost: 0
   objectID: 1001
 --- !u!1 &4084565062124068761
 GameObject:
@@ -667,10 +677,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163cc278d658c034cad6aa98276afbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicDmg: 2
-  maxHP: 1000
-  currentHP: 1000
-  attacksDMG: 0200000002000000
+  heroName: 
+  maxHP: 100
+  currentHP: 100
+  maxStamina: 0
+  currentStamina: 0
+  attacksDMG:
+  - attackName: 
+    dmgAmount: 20
+    critChance: 0
+    staminaCost: 0
+  - attackName: 
+    dmgAmount: 5
+    critChance: 0.5
+    staminaCost: 0
   objectID: 1002
 --- !u!1 &4158546427419494060
 GameObject:
@@ -1047,7 +1067,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2786738005291258425}
-  - component: {fileID: 9211948942080303062}
   m_Layer: 0
   m_Name: enemyTeam
   m_TagString: Untagged
@@ -1072,18 +1091,6 @@ Transform:
   - {fileID: 4130917033621763034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9211948942080303062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5393163946499738665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb5870e9471dbcd4fa585e16202893cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7569756744449988916
 GameObject:
   m_ObjectHideFlags: 0

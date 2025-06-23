@@ -1,19 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
+public class BasicAttacks
+{
+    public string attackName;
+    public int dmgAmount;
+    public float critChance;
+    public int staminaCost;
+}
 public class playerStats : MonoBehaviour
 {
-
-
-    /*public int critChance;
-    public int critDmg;
-    public int defens;
-    public int dodge;*/
-    public int basicDmg;
+    public string heroName;
     public int maxHP;
     public int currentHP;
-    public List<int> attacksDMG;
+    public int maxStamina;
+    public int currentStamina;
+
+    public List<BasicAttacks> attacksDMG;
     public int objectID;
-    //public Attack firstAttak;
-    //public Attack secondAttak;
+
 }

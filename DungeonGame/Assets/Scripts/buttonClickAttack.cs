@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class buttonClickAttack : MonoBehaviour
 {
-    //public battleManager BM;
     [SerializeField]private eventsList events;
     private bool canAttack;
     private int whichEnemie;

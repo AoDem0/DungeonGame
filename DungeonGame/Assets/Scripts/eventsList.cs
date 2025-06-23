@@ -9,8 +9,8 @@ public class eventsList : MonoBehaviour
 
     public static Action<bool, int> OnEnemyChosen;
 
-    /*public static Action<int, int> OnEnemieHit;
-    public static Action<int, int> OnPlayerHit;*/
+    public static Action OnObjectDrop;
+    /*public static Action<int, int> OnPlayerHit;*/
 
     public void BattleStateChange(BattleState status)
     {
@@ -28,13 +28,17 @@ public class eventsList : MonoBehaviour
     {
         OnEnemyChosen.Invoke(canAttack, enemyIndex);
     }
+    public void ObjectDrop()
+    {
+        OnObjectDrop.Invoke();
+    }
  /*   public void PlayerHit(int attackID, int whichPlayer)
-    {
-        OnPlayerHit.Invoke(attackID, whichPlayer);
-    }
-    public void EnemyHit(int attackID, int whichEnemie) //maybe niepotrzebne
-    {
-        OnEnemieHit.Invoke(attackID, whichEnemie);
-    }
-*/
+       {
+           OnPlayerHit.Invoke(attackID, whichPlayer);
+       }
+       public void EnemyHit(int attackID, int whichEnemie) //maybe niepotrzebne
+       {
+           OnEnemieHit.Invoke(attackID, whichEnemie);
+       }
+   */
 }
