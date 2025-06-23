@@ -8,12 +8,14 @@ public class heroManager : MonoBehaviour
     private playerMovement movement;
     private BattleManager battleMan;
     private enemyManager enemyMan;
+    private BattleUIManager battleUI;
 
     private void Awake()
     {
         movement = FindAnyObjectByType<playerMovement>();
         battleMan = FindAnyObjectByType<BattleManager>();
         enemyMan = FindAnyObjectByType<enemyManager>();
+        battleUI = FindAnyObjectByType<BattleUIManager>();
     }
 
     
@@ -31,9 +33,19 @@ public class heroManager : MonoBehaviour
     {
         if (battleMan.status == BattleState.PlayerTurn && heroIndex < heros.Count && index > 0)
         {
+            battleUI.UpdateUI(heros[heroIndex]);
             // Debug.Log("player turn yay");
             PlayerAction(heroIndex, index, atkI);
             heroIndex++;
+            if (heroIndex >= heros.Count)
+            {
+                battleUI.UpdateUI(heros[0]);
+            }
+            else
+            {
+               battleUI.UpdateUI(heros[heroIndex]); 
+            }
+            
 
             if (heroIndex >= heros.Count && battleMan.status == BattleState.PlayerTurn)
             {

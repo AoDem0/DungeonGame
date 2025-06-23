@@ -11,12 +11,15 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statusT;
     [SerializeField] private enemyManager enemyMan;
     [SerializeField] private heroManager heroMan;
+    private BattleUIManager battleUI;
 
 
     void Awake()
     {
         enemyMan = FindAnyObjectByType<enemyManager>();
-        heroMan= FindAnyObjectByType<heroManager>();
+        heroMan = FindAnyObjectByType<heroManager>();
+        battleUI = FindAnyObjectByType<BattleUIManager>();
+        battleUI.TurnOffUI();
     }
     void Update()
     {
@@ -41,7 +44,11 @@ public class BattleManager : MonoBehaviour
                 battleStart();
                 break;
             case BattleState.EnemyTurn:
+                battleUI.TurnOffUI();
                 enemyMan.enemyResponce();
+                break;
+            case BattleState.PlayerTurn:
+                battleUI.TurnOnUI();
                 break;
             case BattleState.Won:
                 battleWon();
@@ -57,16 +64,23 @@ public class BattleManager : MonoBehaviour
     private void battleStart()
     {
         heroMan.changeMovement(0);
+        battleUI.TurnOnUI();
+        battleUI.UpdateUI(heroMan.heros[0]);
         enemyMan.spawnEnemies();
         eventsList.OnBattleStateChange(BattleState.PlayerTurn);
     }
     private void battleLost()
     {
         heroMan.changeMovement(5);
+        battleUI.TurnOffUI();
+
     }
     private void battleWon()
     {
         heroMan.changeMovement(5);
+        GameObject enemieGrupa = GameObject.FindWithTag("enemieGrupa");
+        Destroy(enemieGrupa);
+        battleUI.TurnOffUI();
         heroMan.resetStamina();
     }
     
