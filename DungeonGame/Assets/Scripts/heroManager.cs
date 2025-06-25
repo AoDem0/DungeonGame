@@ -9,6 +9,7 @@ public class heroManager : MonoBehaviour
     private BattleManager battleMan;
     private enemyManager enemyMan;
     private BattleUIManager battleUI;
+    private soundManager sounds;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class heroManager : MonoBehaviour
         battleMan = FindAnyObjectByType<BattleManager>();
         enemyMan = FindAnyObjectByType<enemyManager>();
         battleUI = FindAnyObjectByType<BattleUIManager>();
+        sounds = FindAnyObjectByType<soundManager>();
     }
 
     
@@ -72,10 +74,12 @@ public class heroManager : MonoBehaviour
         heros[HI].currentStamina -= heros[HI].attacksDMG[atk].staminaCost;
         if (heros[HI].currentStamina > 0)
         {
+            sounds.Play("attack");
             target.currentHP -= finalDMG;
         }
         else
         {
+            sounds.Play("attack");
             target.currentHP -= 1;
         }
 
@@ -91,6 +95,7 @@ public class heroManager : MonoBehaviour
     {
         hero.gameObject.SetActive(false);
         Debug.Log("hero dezth" + hero);
+        sounds.Play("death");
         heros.Remove(hero);
         Destroy(hero);
         if (heros.Count <= 0)

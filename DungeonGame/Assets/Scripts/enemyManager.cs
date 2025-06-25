@@ -11,10 +11,12 @@ public class enemyManager : MonoBehaviour
     private BattleManager battleMan;
     private heroManager heroMan;
     [SerializeField] private Transform player;
+    private soundManager sounds;
     void Awake()
     {
         battleMan = FindAnyObjectByType<BattleManager>();
         heroMan = FindAnyObjectByType<heroManager>();
+        sounds = FindAnyObjectByType<soundManager>();
     }
 
     private void OnEnable()
@@ -54,7 +56,7 @@ public class enemyManager : MonoBehaviour
             {
                 finalDMG = Mathf.RoundToInt(finalDMG * 1.5f);
             }
-
+            sounds.Play("attack");
             heroMan.heros[ranHero].currentHP -= finalDMG;
 
             if (heroMan.heros[ranHero].currentHP <= 0)
@@ -97,6 +99,7 @@ public class enemyManager : MonoBehaviour
     {
         enemie.gameObject.SetActive(false);
         Debug.Log("enemy death" + enemie);
+        sounds.Play("death");
         enemies.Remove(enemie);
         Destroy(enemie);
         if (enemies.Count <= 0)

@@ -6,6 +6,12 @@ public class buttonClickAttack : MonoBehaviour
     private bool canAttack;
     private int whichEnemie;
     private int buttonIndex;
+    private soundManager sounds;
+
+    void Start()
+    {
+        sounds = FindAnyObjectByType<soundManager>();
+    }
 
     private void OnEnable()
     {
@@ -34,7 +40,7 @@ public class buttonClickAttack : MonoBehaviour
 
         if (canAttack && whichEnemie > 0)
         {
-
+            sounds.Play("UISound");
             events.PlayerInput(whichEnemie, buttonIndex);
             whichEnemie = 0;
         }

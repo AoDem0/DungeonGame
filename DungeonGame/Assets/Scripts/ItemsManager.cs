@@ -64,10 +64,10 @@ public class ItemsManager : MonoBehaviour
                 hero.attacksDMG[1].dmgAmount += item.statChangeAmount;
                 break;
             case "atk1Stamina":
-                hero.attacksDMG[0].staminaCost += item.statChangeAmount;
+                hero.attacksDMG[0].staminaCost -= item.statChangeAmount;
                 break;
             case "atk2Stamina":
-                hero.attacksDMG[1].staminaCost += item.statChangeAmount;
+                hero.attacksDMG[1].staminaCost -= item.statChangeAmount;
                 break;
             default:
                 break;

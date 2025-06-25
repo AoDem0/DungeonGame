@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { Start, PlayerTurn, EnemyTurn, Won, Lost }
 
@@ -71,8 +71,8 @@ public class BattleManager : MonoBehaviour
     }
     private void battleLost()
     {
-        heroMan.changeMovement(5);
-        battleUI.TurnOffUI();
+
+        SceneManager.LoadScene("death");
 
     }
     private void battleWon()
