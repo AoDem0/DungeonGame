@@ -13,16 +13,16 @@ public class BattleUIManager : MonoBehaviour
     public void UpdateUI(playerStats hero)
     {
         allText[0].text = hero.heroName;
-        allText[1].text = hero.currentHP.ToString() + " / " + hero.maxHP.ToString();
-        allText[2].text = hero.currentStamina.ToString() + " / " + hero.maxStamina.ToString();
+        allText[1].text = "hp: " + hero.currentHP.ToString() + " / " + hero.maxHP.ToString();
+        allText[2].text = "stamina: " + hero.currentStamina.ToString() + " / " + hero.maxStamina.ToString();
         allText[3].text = hero.attacksDMG[0].attackName;
-        allText[4].text = hero.attacksDMG[0].dmgAmount.ToString();
-        allText[5].text = hero.attacksDMG[0].critChance.ToString();
-        allText[6].text = hero.attacksDMG[0].staminaCost.ToString();
+        allText[4].text = "dmg: " + hero.attacksDMG[0].dmgAmount.ToString();
+        allText[5].text = "crit%: " + hero.attacksDMG[0].critChance.ToString();
+        allText[6].text = "sta: " + hero.attacksDMG[0].staminaCost.ToString();
         allText[7].text = hero.attacksDMG[1].attackName;
-        allText[8].text = hero.attacksDMG[1].dmgAmount.ToString();
-        allText[9].text = hero.attacksDMG[1].critChance.ToString();
-        allText[10].text = hero.attacksDMG[1].staminaCost.ToString();
+        allText[8].text = "dmg: " + hero.attacksDMG[1].dmgAmount.ToString();
+        allText[9].text = "crit%: " + hero.attacksDMG[1].critChance.ToString();
+        allText[10].text = "sta: " + hero.attacksDMG[1].staminaCost.ToString();
 
     }
     public void TurnOffUI()

@@ -3,12 +3,13 @@ using UnityEngine;
 public class buttonClickChooseEnemie : MonoBehaviour
 {
     private int index;
-    private bool atack = true;
+    [SerializeField]private bool atack = true;
     private soundManager sounds;
 
     void Start()
     {
         sounds = FindAnyObjectByType<soundManager>();
+        atack = true;
     }
     public void ClickChoose()
     {
