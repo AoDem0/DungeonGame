@@ -13,6 +13,7 @@ public class buttonClickChooseEnemie : MonoBehaviour
     }
     public void ClickChoose()
     {
+        Debug.Log("clicked enemie");
         sounds.Play("UISound");
         index = GetComponentInParent<playerStats>().objectID;
         eventsList.OnEnemyChosen(atack, index);

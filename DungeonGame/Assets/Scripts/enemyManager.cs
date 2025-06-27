@@ -6,7 +6,7 @@ public class enemyManager : MonoBehaviour
 {
     public List<playerStats> enemies;
     [SerializeField] private List<GameObject> enemiesPrefabs;
-    private int enemyIndex;
+    public int enemyIndex;
     private bool isEnemyBussy;
     private BattleManager battleMan;
     private heroManager heroMan;
@@ -74,7 +74,7 @@ public class enemyManager : MonoBehaviour
             {
                 eventsList.OnBattleStateChange(BattleState.PlayerTurn);
                 enemyIndex = 0;
-                // Debug.Log("Players turn");
+                Debug.Log("Players turn");
             }
 
         }
@@ -83,16 +83,20 @@ public class enemyManager : MonoBehaviour
 
     public void spawnEnemies()
     {
+        Debug.Log("Spawn enemies");
         Vector3 playerPos = player.transform.position;
         int ranPref = Random.Range(0, enemiesPrefabs.Count);
         Vector3 spawnPos = new Vector3(playerPos.x + 2.5f, playerPos.y, playerPos.z);
         Instantiate(enemiesPrefabs[ranPref], spawnPos, Quaternion.identity);
+        //enemiesPrefabs.Remove(enemiesPrefabs[ranPref]);
 
         GameObject[] foundObjects = GameObject.FindGameObjectsWithTag("Enemie");
+        Debug.Log(foundObjects);
         foreach (GameObject found in foundObjects)
         {
             playerStats foundScript = found.GetComponent<playerStats>(); ;
             enemies.Add(foundScript);
+            Debug.Log("new enemies found");
         }
     }
     public void EnemyDeath(playerStats enemie)

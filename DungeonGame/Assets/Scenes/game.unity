@@ -482,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 29818476}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -70.54, y: 0.5376, z: 0}
+  m_LocalPosition: {x: -56.91, y: 0.5376, z: 0}
   m_LocalScale: {x: 0.5809, y: 8.794689, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6320,6 +6320,8 @@ MonoBehaviour:
   enemies: []
   enemiesPrefabs:
   - {fileID: 5393163946499738665, guid: d2062689d060054489f000a91ff4314a, type: 3}
+  - {fileID: 4314659627958774267, guid: 0276d46c9ce2e6d46a6de8e89539e4af, type: 3}
+  enemyIndex: 0
   player: {fileID: 1065722281}
 --- !u!114 &1474039506
 MonoBehaviour:
@@ -6336,6 +6338,7 @@ MonoBehaviour:
   heros:
   - {fileID: 1173134648}
   - {fileID: 556266916}
+  heroIndex: 0
 --- !u!114 &1474039507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8010,7 +8013,7 @@ Transform:
   m_GameObject: {fileID: 1823465258}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -63.89, y: 0.5376, z: 0}
+  m_LocalPosition: {x: -36.55, y: 0.5376, z: 0}
   m_LocalScale: {x: 0.5809, y: 8.794689, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

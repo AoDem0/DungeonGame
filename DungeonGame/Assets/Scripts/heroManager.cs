@@ -4,7 +4,7 @@ using UnityEngine;
 public class heroManager : MonoBehaviour
 {
     public List<playerStats> heros;
-    private int heroIndex;
+    public int heroIndex;
     private playerMovement movement;
     private BattleManager battleMan;
     private enemyManager enemyMan;
@@ -36,7 +36,7 @@ public class heroManager : MonoBehaviour
         if (battleMan.status == BattleState.PlayerTurn && heroIndex < heros.Count && index > 0)
         {
             battleUI.UpdateUI(heros[heroIndex]);
-            // Debug.Log("player turn yay");
+            Debug.Log("player turn yay");
             PlayerAction(heroIndex, index, atkI);
             heroIndex++;
             if (heroIndex >= heros.Count)
@@ -53,7 +53,7 @@ public class heroManager : MonoBehaviour
             {
                 eventsList.OnBattleStateChange(BattleState.EnemyTurn);
                 heroIndex = 0;
-                //Debug.Log("Enemy turn");
+                Debug.Log("Enemy turn");
             }
         }
 

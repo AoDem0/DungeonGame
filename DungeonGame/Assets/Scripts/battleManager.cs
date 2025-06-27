@@ -63,6 +63,8 @@ public class BattleManager : MonoBehaviour
 
     private void battleStart()
     {
+        heroMan.heroIndex = 0;
+        enemyMan.enemyIndex = 0;
         heroMan.changeMovement(0);
         battleUI.TurnOnUI();
         battleUI.UpdateUI(heroMan.heros[0]);
@@ -80,6 +82,8 @@ public class BattleManager : MonoBehaviour
         heroMan.changeMovement(5);
         GameObject enemieGrupa = GameObject.FindWithTag("enemieGrupa");
         Destroy(enemieGrupa);
+        enemyMan.enemyIndex = 0;
+        heroMan.heroIndex = 0;
         battleUI.TurnOffUI();
         heroMan.resetStamina();
         eventsList.OnObjectDrop();

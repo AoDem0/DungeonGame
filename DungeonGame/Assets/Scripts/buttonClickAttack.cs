@@ -40,6 +40,7 @@ public class buttonClickAttack : MonoBehaviour
 
         if (canAttack && whichEnemie > 0)
         {
+            Debug.Log("clicked attack");
             sounds.Play("UISound");
             events.PlayerInput(whichEnemie, buttonIndex);
             whichEnemie = 0;
