@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b4a4a8cd9ce6047840d3bfdded5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atack: 1
 --- !u!1 &4074003881420570435
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13207549, g: 0.10528659, b: 0.10528659, a: 1}
   m_FlipX: 0
@@ -489,7 +490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13207549, g: 0.10528659, b: 0.10528659, a: 1}
   m_FlipX: 0
@@ -960,6 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b4a4a8cd9ce6047840d3bfdded5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atack: 1
 --- !u!1 &9210827791066064871
 GameObject:
   m_ObjectHideFlags: 0
