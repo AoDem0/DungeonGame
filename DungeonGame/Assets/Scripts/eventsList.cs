@@ -10,6 +10,9 @@ public class eventsList : MonoBehaviour
     public static Action OnObjectDrop;
     public static Action<Item> OnItemFoundRequestHeroSelection;
     public static Action<playerStats> OnHeroSelectedForStatChange;
+    public static Action<armorSO> OnEquipArmor;
+    public static Action<weaponsSO> OnEquipWeapon;
+    public static Action<trinketSO, int> OnEquipTrinket;
 
     public void BattleStateChange(BattleState status)
     {
@@ -31,14 +34,30 @@ public class eventsList : MonoBehaviour
     {
         OnObjectDrop?.Invoke();
     }
-    
+
     public void HeroSelectedForStatChange(playerStats selectedHero)
     {
         OnHeroSelectedForStatChange?.Invoke(selectedHero);
     }
 
-    public void ItemFoundRequestHeroSelection(Item item) 
+    public void ItemFoundRequestHeroSelection(Item item)
     {
         OnItemFoundRequestHeroSelection?.Invoke(item);
     }
+
+    
+    //--------------EquipmentMAnager events-------------------------------------
+    public void EquipArmor(armorSO armor)//dodac wiecej argumentow potem
+    {
+        OnEquipArmor?.Invoke(armor);
+    }
+    public void EquipWeapon(weaponsSO weapon)
+    {
+        OnEquipWeapon?.Invoke(weapon);
+    }
+    public void EquipTrinket(trinketSO trinket, int fieldIndex)
+    {
+        OnEquipTrinket?.Invoke(trinket, fieldIndex);
+    }
+    
 }

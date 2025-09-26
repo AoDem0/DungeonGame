@@ -31,6 +31,20 @@ public class EquipmentManager : MonoBehaviour
         equipArmor(newArmor);
 
     }
+    private void OnEnable()
+    {
+        eventsList.OnEquipArmor += equipArmor;
+        eventsList.OnEquipWeapon += equipWeapon;
+        eventsList.OnEquipTrinket += equipTrinket;
+    }
+
+    private void OnDisable()
+    {
+        eventsList.OnEquipArmor -= equipArmor;
+        eventsList.OnEquipWeapon -= equipWeapon;
+        eventsList.OnEquipTrinket -= equipTrinket;
+    }
+
 
     private void equipArmor(armorSO armorToEquip)
     {
@@ -41,10 +55,7 @@ public class EquipmentManager : MonoBehaviour
             heroEq.armor = armorToEquip;
             Debug.Log($"{currentHero} dostał armor: {armorToEquip.name}");
         }
-        else
-        {
-            Debug.LogWarning($"Nie znaleziono bohatera {currentHero} w allHeroEquipment!");
-        }
+
     }
     private void equipWeapon(weaponsSO weaponToEquip)
     {
@@ -55,10 +66,6 @@ public class EquipmentManager : MonoBehaviour
             heroEq.weapon = weaponToEquip;
             Debug.Log($"{currentHero} dostał armor: {weaponToEquip.name}");
         }
-        else
-        {
-            Debug.LogWarning($"Nie znaleziono bohatera {currentHero} w allHeroEquipment!");
-        }
     }
     private void equipTrinket(trinketSO trinketToEquip, int whichTrinketField)
     {
@@ -68,10 +75,6 @@ public class EquipmentManager : MonoBehaviour
         {
             heroEq.trinkets[whichTrinketField] = trinketToEquip;
             Debug.Log($"{currentHero} dostał armor: {trinketToEquip.name}");
-        }
-        else
-        {
-            Debug.LogWarning($"Nie znaleziono bohatera {currentHero} w allHeroEquipment!");
         }
     }
     
