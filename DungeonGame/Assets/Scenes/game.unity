@@ -5804,6 +5804,7 @@ GameObject:
   - component: {fileID: 1474039506}
   - component: {fileID: 1474039505}
   - component: {fileID: 1474039507}
+  - component: {fileID: 1474039508}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5998,6 +5999,27 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 97dc4b8b16a4a0f4189d0021659d8cfe, type: 3}
     volume: 1
     source: {fileID: 0}
+--- !u!114 &1474039508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474039499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41456f6d62da3e4ca5a1d2c7c96e17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allHeroEquipment:
+  - hero: 0
+    armorGO: {fileID: 0}
+    weapon: {fileID: 11400000, guid: 8cb46770f232cd749b08a17f0307e478, type: 2}
+    trinket1: {fileID: 0}
+    trinket2: {fileID: 0}
+    armor: {fileID: 0}
+  currentHero: 0
+  newArmor: {fileID: 11400000, guid: 57fa725bf48d25847bd0e4ea7b818763, type: 2}
 --- !u!1 &1558877700
 GameObject:
   m_ObjectHideFlags: 0
