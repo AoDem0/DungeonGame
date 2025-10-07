@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 516b11cff066c1e4eb5ba8e3ca937a1a, type: 3}
-  m_Name: smallHerbalPotion
+  m_Name: smallHealingPotion
   m_EditorClassIdentifier: 
-  potionName: small herbal potion
-  potionSprite: {fileID: 0}
+  itemName: smallHealingPotion
+  itemSprite: {fileID: -2499578615018235864, guid: 8227af7331238b848b38203909576413, type: 3}
+  itemDescription: small red potion, smells very sweet
+  itemType: 0
   potionType: 0
   potionStatChangeAmount: 10
-  potionDropChance: 60
+  potionDropChance: 100

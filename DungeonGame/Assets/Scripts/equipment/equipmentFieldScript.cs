@@ -4,27 +4,33 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class equipmentScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class equipmentFieldScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     [SerializeField] private int equipmentFieldIndex;
     [SerializeField] private EqFieldType eqFieldType;
-    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject infoPanel;
 
     void Start()
     {
-        panel.SetActive(false);
+        infoPanel.SetActive(false);
+    }
+    private void FindItemInCharacterInventory()
+    {
+        Debug.Log("");
+        EquipmentManager eqMan = FindFirstObjectByType<EquipmentManager>();
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("The cursor entered the selectable UI element.");
-        panel.SetActive(true);
+        infoPanel.SetActive(true);
 
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("The cursor exited the selectable UI element.");
-        panel.SetActive(false);
+        infoPanel.SetActive(false);
 
     }
     public void OnPointerDown(PointerEventData eventData)

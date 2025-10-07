@@ -3,7 +3,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public enum EqFieldType { armor, weapon, trinket }
+public enum EqFieldType { armor, weapon, trinket } //usunąć?
+
 public enum CurrentHero{ Alice, WhiteRabbit, MadHatter}
 [System.Serializable]
 
@@ -28,7 +29,7 @@ public class EquipmentManager : MonoBehaviour
     void Start()
     {
         //Debug.Log(allHeroEquipment[0].weapon.weaponName);
-        equipArmor(newArmor);
+        //equipArmor(newArmor);
 
     }
     private void OnEnable()

@@ -13,6 +13,12 @@ public class eventsList : MonoBehaviour
     public static Action<armorSO> OnEquipArmor;
     public static Action<weaponsSO> OnEquipWeapon;
     public static Action<trinketSO, int> OnEquipTrinket;
+    public static Action OnLootUIShow;
+    public static Action OnLootHideUI;
+    public static Action OnAddLoot;
+    public static Action<ItemSO> OnUpgradeLoot;
+
+    //-----------------Battle Events------------------------------
 
     public void BattleStateChange(BattleState status)
     {
@@ -30,10 +36,6 @@ public class eventsList : MonoBehaviour
     {
         OnEnemyChosen?.Invoke(canAttack, enemyIndex);
     }
-    public void ObjectDrop()
-    {
-        OnObjectDrop?.Invoke();
-    }
 
     public void HeroSelectedForStatChange(playerStats selectedHero)
     {
@@ -45,7 +47,7 @@ public class eventsList : MonoBehaviour
         OnItemFoundRequestHeroSelection?.Invoke(item);
     }
 
-    
+
     //--------------EquipmentMAnager events-------------------------------------
     public void EquipArmor(armorSO armor)//dodac wiecej argumentow potem
     {
@@ -59,5 +61,29 @@ public class eventsList : MonoBehaviour
     {
         OnEquipTrinket?.Invoke(trinket, fieldIndex);
     }
-    
+
+
+
+    //--------------Loot events---------------------------------------------------
+    public void ObjectDrop()//zmiana na GetLOOt i ShowLootUI
+    {
+        OnObjectDrop?.Invoke();
+    }
+    public void LootShowUI()//obv
+    {
+        OnLootUIShow?.Invoke();
+    }
+    public void LootHideUI() //obv
+    {
+        OnLootHideUI?.Invoke();
+    }
+    public void AddLoot()// add loot in loot field
+    {
+        OnAddLoot?.Invoke();
+    }
+    public void UpgradeLoot(ItemSO item)// remove item from your inv and add to loot field
+    {
+        OnUpgradeLoot?.Invoke(item);
+    }
+
 }

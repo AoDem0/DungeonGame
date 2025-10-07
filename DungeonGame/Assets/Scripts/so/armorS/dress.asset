@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be192cb64d5a524db4d879620e2996f, type: 3}
   m_Name: dress
   m_EditorClassIdentifier: 
-  armorName: simple dress
-  armorSprite: {fileID: 0}
-  armorDMGReductionAmount: 5
+  armorName: dress
+  armorImage: {fileID: 0}
+  armorDMGReductionAmount: 10
